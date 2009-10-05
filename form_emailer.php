@@ -6,71 +6,7 @@
  * @version 0.28
  * @date June 14, 2009
  * 
- */
- 
- 
-/*
- * 
- * CONFIGURATION:
- * 
- Simply passing a form to this file is enough to properly send an email, 
- however certain fields must be present in the form in order for it to 
- work. The fields must be spelled and have the same exact casing as
- shown below. Optional fields add further configuration options. Currently
- the form only uses the $_POST method, however a simple tweak when calling
- new FormMailer() can fix that if you wish to use $_GET.
- 
- **
- * Required:
- *
-<input type="hidden" name="recipients" value="" />
- // Comma-deliminated set of emails (ie: "bobsaget@email.com, joseph@smith.com")
- 
-<input type="hidden" name="subject" value="" />
- // User or programmer entered subject line for the email (ie: "Contact Us Email")
- 
-<input type="text" name="email" value="" />
- // Reply to address of the email (ie: "charles@schwabb.net")
- 
- **
- * Optional:
- *
-<input type="hidden" name="redirect" value="" />
- // Continuation path after form is successfully sent (ie: "/index.php" or "http://success.com")
- 
-<input type="hidden" name="autoRedirect" value="" />
- // Integer value for # of seconds to wait before automatically redirecting (ie: "0" or "5")
- // If this value is set to 0, the page will be immediately redirected upon success
- 
- 
- */
- 
- 
- 
-/**
-  * Feel free to change how you execute the FormMailer class however you wish. 
-  */ 
- 
-if (!empty($_POST)){
-        $formMailer = new FormMailer($_POST, true);
-        if (isset($_GET['debug'])) {
-                echo $formMailer->message;
-                echo '<pre>';
-                print_r($formMailer->data);
-        }
-} else {
-        echo 'Please pass a form to this page';
-}
- 
- 
-/**
- * 
- * !!! DO NOT EDIT BELOW THIS LINE !!!
- * (unless you know what you're doing)
- * 
- */
- 
- 
+ */ 
 Class FormMailer {
  
         var $data;
@@ -82,7 +18,7 @@ Class FormMailer {
 		var $autoRedirect;
         var $errors = array();
         
-        function __construct($formData = null, $autoSend = false) {
+        function __construct($formData = null, $autoSend = false, $template = null) {
                 $this->data = $formData;
                 
                 if ($autoSend = true) {

@@ -1,0 +1,3 @@
+Installation:
+
+All you need to do is simply create a form, setup your own 'settings.php' file which can be renamed to be more url friendly and to allow multiple email presets at once. Such as contactus.php and support.php and request-quote.php to use the same form submitter multiple times on your website.
