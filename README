@@ -1,3 +1,35 @@
-Installation:
-
-All you need to do is simply create a form, setup your own 'settings.php' file which can be renamed to be more url friendly and to allow multiple email presets at once. Such as contactus.php and support.php and request-quote.php to use the same form submitter multiple times on your website.
+/*
+ * 
+ * CONFIGURATION:
+ * 
+ Simply passing a form to this file is enough to properly send an email, 
+ however certain fields must be present in the form in order for it to 
+ work. The fields must be spelled and have the same exact casing as
+ shown below. Optional fields add further configuration options. Currently
+ the form only uses the $_POST method, however a simple tweak when calling
+ new FormMailer() can fix that if you wish to use $_GET.
+ 
+ **
+ * Required:
+ *
+<input type="hidden" name="recipients" value="" />
+ // Comma-deliminated set of emails (ie: "bobsaget@email.com, joseph@smith.com")
+ 
+<input type="hidden" name="subject" value="" />
+ // User or programmer entered subject line for the email (ie: "Contact Us Email")
+ 
+<input type="text" name="email" value="" />
+ // Reply to address of the email (ie: "charles@schwabb.net")
+ 
+ **
+ * Optional:
+ *
+<input type="hidden" name="redirect" value="" />
+ // Continuation path after form is successfully sent (ie: "/index.php" or "http://success.com")
+ 
+<input type="hidden" name="autoRedirect" value="" />
+ // Integer value for # of seconds to wait before automatically redirecting (ie: "0" or "5")
+ // If this value is set to 0, the page will be immediately redirected upon success
+ 
+ 
+ */
