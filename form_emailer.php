@@ -183,6 +183,7 @@ Class FormMailer {
                 unset($this->data['SUBJECT']);
                 unset($this->data['REDIRECT']);
                 unset($this->data['AUTOREDIRECT']);
+                unset($this->data['SPAM']);
             }
             
             return true;
